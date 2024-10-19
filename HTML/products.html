@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Performance Gear: Products</title>
+        <link rel="stylesheet" href="../Assets/style.css">
+        <style>
+            .description{text-align: left;}
+            
+            /*Different format for smaller screens (generally phones)*/
+            @media (max-width: 768px) {
+                body {
+                    background-color: #ffffff; 
+                    font-size: 14px;
+                    padding: 10px;
+                }
+
+                .heading {
+                    text-align: center;
+                    font-size: 20px; 
+                }
+
+                .sidebar {
+                    top: 0%;
+                    width: 100%; 
+                    height: auto;
+                }
+
+                .products-container {
+                    display: flex;
+                    flex-direction: column; /*Stack products*/
+                    align-items: center; /*Center products*/
+                }
+
+                .product {
+                    width: 100%;
+                    margin-bottom: 20px;
+                    padding: 10px;
+                    box-sizing: border-box; /*Padding doesn't affect width*/
+                }
+
+                .product img {
+                    width: 90%; /*Make images take up less space*/
+                    height: auto;
+                }
+
+                .add-to-cart {
+                    width: 100%;
+                    padding: 10px;
+                }
+
+                .cart {
+                    width: 100%;
+                    padding: 10px;
+                    bottom: 0%;
+                }
+
+                footer {
+                    font-size: 12px;
+                }
+
+                .top {
+                    width: 100%;
+                    padding: 10px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <a href="../HTML/index.html"><img src="../Assets/Gym Store Logo .png" alt="Image Not Found" width="12%" height="145px"></a>
+        <table class="heading">
+            <tr>
+                <td><a href="../HTML/index.html" onclick="goHome(event)">HOME</a></td>
+                <td><a href="../HTML/products.html" class="active">ALL PRODUCTS</a></td>
+                <td><a href="../HTML/about.html" onclick="goAbout(event)">ABOUT US</a></td>
+                <td><a href="../HTML/cart.html">INVOICE</a></td>
+            </tr>
+        </table>
+
+        <br><br>
+
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="../HTML/index.html" onclick="goHome(event)">Home</a>
+            <a href="../HTML/index.html#log" style="font-size: large;" onclick="goHomeLog(event)">&emsp;&emsp;- Log In</a>
+            <a href="../HTML/products.html">Products</a>
+            <a href="../HTML/about.html" onclick="goAbout(event)">About</a>
+            <a href="../HTML/cart.html">Invoice</a>
+          </div>
+        
+          <div class="main-content">
+            <button class="openbtn" onclick="openNav()">&#9776; Navigation</button>
+          </div>
+        
+          <script src="../Assets/script.js"></script>
+
+          <center><h1 class="heading">PRODUCTS</h1></center>
+          <center><h2>Feel Free To Browse And Select From Our Wide Range Of Available Items</h2></center>
+        <br><br>
+
+        <div class="products-container">
+            <div class="product">
+                <img src="../Assets/01- Adjustable Dumbells.webp" alt="Product 1" style="margin-left: 7px;">
+                <h3>Two (2) Powertrain 90 LB Adjustable Dumbbells Set with a Stand </h3>
+                <p>Description: The adjustable nature of this product is good for use by lifters at all levels, from beginners to professional</p>
+                <div class="description">
+                    <ul>
+                        <li>Brand: Powertrain</li>
+                        <li>Colour: Black</li>
+                        <li>Unit Weight: 180 lb (90 lb Each)</li>
+                        <li>Weight Range: 12 lb- 90 lb each</li>
+                        <li>Easy to use- rotate the dial to choose your required weight</li>
+                        <li>Includes: 2 x 40 lb Adjustable Dumbbells, 1 x Heavy Duty Dumbbell Stand, 2 x Dumbbell holders, 1 x User Manual </li>
+                    </ul>
+                </div>
+                
+                <span>$72,320.76</span><br>
+                <label>Quantity:</label>
+                <input type="number" id="quantity-1" value="1" min="1">
+                <button class="add-to-cart" data-name="Dumbbells" data-price="72320.76">Add to Cart</button>
+            </div>
+            
+            <div class="product">
+                <img src="../Assets/02- 10lb Plate.webp" alt="Product 2" style="margin-left: 7px;">
+                <h3>CAP OLYMPIC CAST IRON 10 LB PLATE</h3>
+                <p>Description: This plate are ideal for strength training and can be used on EZ Bars and normal barbells.</p>
+                <div class="description">
+                    <ul>
+                        <li>Brand: CAP Barbell</li>
+                        <li>Colour: Grey</li>
+                        <li>Unit Weight: 10 lb</li>
+                        <li>Material: Solid Cast Iron</li>
+                        <li>Smooth Edges</li>
+                        <li>2 inches center hole</li>
+                    </ul>
+                </div>
+                <br><br>
+                <span>$2,222.63</span><br>
+                <label>Quantity:</label>
+                <input type="number" id="quantity-2" value="1" min="1">
+                <button class="add-to-cart" data-name="10lb Plate" data-price="2222.63">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="../Assets/03- 25lb Plate.jpg" alt="Product 3" style="margin-left: 7px;">
+                <h3>CAP OLYMPIC CAST IRON 25 LB PLATE</h3>
+                <p>Description: This plate are ideal for strength training and can be used on EZ Bars and normal barbells.</p>
+                <div class="description">
+                    <ul>
+                        <li>Brand: CAP Barbell</li>
+                        <li>Colour: Grey</li>
+                        <li>Unit Weight: 25 lb</li>
+                        <li>Material: Solid Cast Iron</li>
+                        <li>Smooth Edges</li>
+                        <li>2 inches center hole</li>
+                    </ul>
+                </div>
+                <br><br>
+                <span>$5,400.08</span><br>
+                <label>Quantity:</label>
+                <input type="number" id="quantity-3" value="1" min="1">
+                <button class="add-to-cart" data-name="25lb Plate" data-price="5400.08">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="../Assets/04- 35lb Plate.jpg" alt="Product 4" style="margin-left: 7px;">
+                <h3>CAP OLYMPIC CAST IRON 35 LB PLATE</h3>
+                <p>Description: This plate are ideal for strength training and can be used on EZ Bars and normal barbells.</p>
+                <div class="description">
+                    <ul>
+                        <li>Brand: CAP Barbell</li>
+                        <li>Colour: Gris</li>
+                        <li>Unit Weight: 35 lb</li>
+                        <li>Material: Solid Cast Iron</li>
+                        <li>Smooth Edges</li>
+                        <li>2 inches center hole</li>
+                    </ul>
+                </div>
+                <br><br>
+                <span>$6,988.81</span><br>
+                <label>Quantity:</label>
+                <input type="number" id="quantity-4" value="1" min="1">
+                <button class="add-to-cart" data-name="35lb Plate" data-price="6988.81">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="../Assets/05- 45lb Plate.jpg" alt="Product 5" style="margin-left: 7px;">
+                <h3>CAP OLYMPIC CAST IRON 45 LB PLATE</h3>
+                <p>Description: This plate are ideal for strength training and can be used on EZ Bars and normal barbells.</p>
+                <div class="description">
+                    <ul>
+                        <li>Brand: CAP Barbell</li>
+                        <li>Colour: Grey</li>
+                        <li>Unit Weight: 45 lb</li>
+                        <li>Material: Solid Cast Iron</li>
+                        <li>Smooth Edges</li>
+                        <li>2 inches center hole</li>
+                    </ul>
+                </div>
+                <br><br><br><br><br><br><br><br>
+                <span>$8,339.23</span><br>
+                <label>Quantity:</label>
+                <input type="number" id="quantity-5" value="1" min="1">
+                <button class="add-to-cart" data-name="45lb Plate" data-price="8339.23">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="../Assets/06- EZ Bar.webp" alt="Product 6" style="margin-left: 7px;">
+                <h3>Stainless EZ Curl Gym Bar</h3>
+                <p>Description: This meticulously forged Stainless EZ Curl Gym Bar guarantees robustness and dependability during rigorous workouts.</p>
+                <div class="description">
+                    <ul>
+                        <li>Brand: American Barbell </li>
+                        <li>Colour: Grey</li>
+                        <li>Weight: 31 lb</li>
+                        <li>Length: 5 feet</li>
+                        <li>Material: Stainless Steel</li>
+                        <li>Loadable Sleeve Length: 10.25 inches</li>
+                        <li>Shaft Diameter: 1.12 inches</li>
+                        <li>Distance Between Collars: 36.75</li>
+                    </ul>
+                </div>
+                <br><br><br><br><br><br>
+                <span>$11,250.54</span><br>
+                <label>Quantity:</label>
+                <input type="number" id="quantity-6" value="1" min="1">
+                <button class="add-to-cart" data-name="EZ Bar" data-price="11250.54">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="../Assets/07- Barbell.png" alt="Product 7" style="margin-left: 7px;">
+                <h3>Olympic Weightlifting Brass Bushing Barbell</h3>
+                <p>Description: This plate are ideal for strength training and can be used on EZ Bars and normal barbells.</p>
+                <div class="description">
+                    <ul>
+                        <li>Brand: CAP Barbell</li>
+                        <li>Colour: Grey</li>
+                        <li>Unit Weight: 45 lb</li>
+                        <li>Material: Brass</li>
+                        <li>Capacity: 1000 lb</li>
+                        <li>Diameter: 1.9 inches</li>
+                        <li>Length: 86 inches</li>
+                        <li>Length Between Plate Stops: 52 inches</li> 
+                        <li>15 inches rotating ends with brass bushing, knurled grip pattern</li>
+                        <li>Compatible with CAP Olympic weight plates</li>
+                    </ul>
+                </div>
+                <br><br><br><br>
+                <span>$22,083.31</span><br>
+                <label>Quantity:</label>
+                <input type="number" id="quantity-7" value="1" min="1">
+                <button class="add-to-cart" data-name="Barbell" data-price="22083.31">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="../Assets/08- Gym Floor Mats.jpeg" alt="Product 8" style="margin-left: 7px;">
+                <h3>6 High Density Interlocking Foam Puzzle Exercise Gym Flooring Mat</h3>
+                <p>Description: These foam mats are not only comfortable when barefoot but also durable to withstand high volume workouts.</p>
+                <div class="description">
+                    <ul>
+                        <li>Brand: CAP Barbell</li>
+                        <li>Colour: Grey</li>
+                        <li>Assembled Weight: 3.48 lb</li>
+                        <li>Material: EVA Foam</li>
+                        <li>Unit Size:<ul><li>Length: 22.3 inches</li><li>Width: 22.3 inches</li><li>Height: 0.47 inches</li></ul></li>
+                        <li>Assembled Size:<ul><li>Length: 66.50 inches</li><li>Width: 45.00 inches</li><li>Height: 0.47 inches</li></ul></li>
+                        <li>Non-slip Mat</li>
+                        <li>Mildew-resistant and Odor-free</li>
+                    </ul>
+                </div>
+                <span>$3,338.29</span><br>
+                <label>Quantity:</label>
+                <input type="number" id="quantity-8" value="1" min="1">
+                <button class="add-to-cart" data-name="Gym Mats" data-price="3228.29">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="../Assets/09- Work Bench.webp" alt="Product 9" style="margin-left: 7px;">
+                <h3>Deracy Adjustable Weight Bench</h3>
+                <p>Description:  Affordable bench that has both incline and decline adjustments, as well as an angled seat adjustment for decline workouts.</p>
+                <div class="description">
+                    <ul>
+                        <li>Brand: Deracy</li>
+                        <li>Colour: Black and Red</li>
+                        <li>Weight: 49 lb</li>
+                        <li>Angle Adjustability:<ul><li>7 Back adjustments (including decline)</li><li>3 Seat adjustments</li></ul></li>
+                        <li>Pad Length: 45 inches</li>
+                        <li>Equipped with two wheels and a grab handle</li>
+                    </ul>
+                </div>
+                <br><br><br><br>
+                <span>$35,110.87</span><br>
+                <label>Quantity:</label>
+                <input type="number" id="quantity-9" value="1" min="1">
+                <button class="add-to-cart" data-name="Work Bench" data-price="35110.87">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="../Assets/10- Squat- Bench Rack.jpg" alt="Product 10" style="margin-left: 7px;">
+                <h3>DONOW Olympic Weight Bench with Squat Rack Adjustable Workout Bench for Bench Press</h3>
+                <p>Description: With this squat rack with weight bench bundle, you can do deep squat training, bench press, pull up, push up, floor-to-bench planks, etc.</p>
+                <div class="description">
+                    <ul>
+                        <li>Brand: DONOW</li>
+                        <li>Colour: Black</li>
+                        <li>Material: Iron</li>
+                        <li>Weight: 600 lb</li>
+                        <li>21 Level adjustable settings</li>
+                        <li>Two weights storage posts</li>
+                    </ul>
+                </div>
+                <br>
+                <span>$46,071.49</span><br>
+                <label>Quantity:</label>
+                <input type="number" id="quantity-10" value="1" min="1">
+                <button class="add-to-cart" data-name="Squat/ Bench Rack" data-price="46071.49">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="../Assets/11- Smith Machine.webp" alt="Product 11" style="margin-left: 7px;">
+                <h3>Olympic Smith Machine</h3>
+                <p>Description: The Olympic Smith Machine is suitable for total body workout with the maximum safety.</p>
+                <div class="description">
+                    <ul>
+                        <li>Brand: Panatta</li>
+                        <li>Colour: Black and Red</li>
+                        <li>Material: Iron</li>
+                        <li>Weight: 441 lb</li>
+                        <li>Capacity: 683 lb</li>
+                        <li>Width: 57 inches</li>
+                        <li>Length: 61 inches</li>
+                        <li>Height: 98 inches</li>
+                        <li>Height adjustable safety stoppers</li>
+                        <li>Hooks for elastic bands.</li>
+                    </ul>
+                </div>
+                <br><br><br>
+                <span>$74,511.30</span><br>
+                <label>Quantity:</label>
+                <input type="number" id="quantity-11" value="1" min="1">
+                <button class="add-to-cart" data-name="Smith Machine" data-price="74511.30">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="../Assets/12- Cable Machine.webp" alt="Product 12" style="margin-left: 7px;">
+                <h3>Functional Trainer Cable Machine with Dual 200 lb Weight Stacks</h3>
+                <p>Description: Versatile functional trainer designed to elevate your fitness routine to new heights.</p>
+                <div class="description">
+                    <ul>
+                        <li>Brand: Panatta</li>
+                        <li>Colour: Black and Red</li>
+                        <li>Height: 84 inches</li>
+                        <li>Weight: 868 lb</li>
+                        <li>Width: 60 inches</li>
+                        <li>Length/ Depth: 46 inches</li>
+                        <li>Max Usable Weight Per Side: 100 lb</li>
+                        <li>Min Usable Weight Per Side: 5 lb</li>
+                        <li>Number of Height Adjustments: 19 Slots (3.5 inches apart)</li>
+                        <li>Accessories Included: hand straps, triceps rope, leg curl strap, and more.</li>
+                        <li>Split Grip Pull-Up Bar</li>
+                    </ul>
+                </div>
+                <span>$379,546.88</span><br>
+                <label>Quantity:</label>
+                <input type="number" id="quantity-12" value="1" min="1">
+                <button class="add-to-cart" data-name="Cable Machine" data-price="379546.88">Add to Cart</button>
+            </div>
+        </div>
+
+        <div id="cart" class="cart">
+            <h2>Your Cart</h2>
+            <ul id="cart-items"></ul>
+            <p>Total: $<span id="total-price">0</span></p>
+            <button id="checkout" class="cartButton">CheckOut</button>
+            <button id="cancel" class="cartButton">Cancel</button>
+            <button id="exit" class="cartButton">Exit</button>
+        </div>
+        
+        <div style="clear: both; text-align: center; margin-top: 20px;">
+            <a href="#top"><button class="top" style="font-size: x-large;">&#128285;Top of the Page&#128285;</button></a>
+        </div><br>
+        
+        <footer>
+            <p>Contact Us:</p>
+            <a href="tel: +8768502495" style="color: #FF4500; text-decoration: none;">
+                Contact Number: 1 (876) 850-2495
+            </a><br>
+            <a href="mailto:2303848@utech.edu.jm?subject=Comments/Queries" style="color: #FF4500; text-decoration: none;">
+                Email: 2303848@utech.edu.jm
+            </a>
+            <br><br>
+        
+            
+            <a href="https://www.instagram.com/peak_performance_gear/" target="_blank" style="text-decoration: none;">
+                <button style="padding: 0; background: none;"><img height="30px" src="../Assets/Insta Icon.png" alt="Folow Us On Instagram" style="margin-top: 0px; margin-bottom: 0px; margin-right: 0px;;"></button>  
+            </a>
+            <br><br>
+
+            <p>&copy; 2024 Walty's Gym Equipment. All Rights Reserved.</p>
+        </footer>
+    </body>
+</html>
