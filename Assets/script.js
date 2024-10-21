@@ -37,6 +37,24 @@ function goHomeLog(event){
     }
 }
 
+function goHomeMiss(event){
+    event.preventDefault();
+    var ans = confirm("You are leaving this page?\nONCE YOU LEAVE THIS PAGE YOU HAVE TO LOGIN AGAIN AND REPOPULATE YOUR CART");
+
+    if (ans === true){
+        window.location.href = "../HTML/index.html#miss";
+    }
+}
+
+function goHomeVis(event){
+    event.preventDefault();
+    var ans = confirm("You are leaving this page?\nONCE YOU LEAVE THIS PAGE YOU HAVE TO LOGIN AGAIN AND REPOPULATE YOUR CART");
+
+    if (ans === true){
+        window.location.href = "../HTML/index.html#vis";
+    }
+}
+
 function goAbout(event){
     event.preventDefault();
     var ans = confirm("You are leaving this page?\nONCE YOU LEAVE THIS PAGE YOU HAVE TO LOGIN AGAIN AND REPOPULATE YOUR CART");
@@ -126,7 +144,6 @@ document.addEventListener('DOMContentLoaded', function (){
     });
 });
 
-// Function to display the invoice
 // Function to display the invoice
 function displayInvoice(){
     const productNames = JSON.parse(localStorage.getItem('productNames')) || [];

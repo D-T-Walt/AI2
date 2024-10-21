@@ -12,7 +12,6 @@
                 <td><a href="../HTML/index.html">HOME</a></td>
                 <td><a href="../HTML/products.html" onclick="allow(event)">ALL PRODUCTS</a></td>
                 <td><a href="../HTML/about.html" class="active">ABOUT US</a></td>
-                <td><a href="../HTML/cart.html" onclick="allow(event)">INVOICE</a></td>
             </tr>
         </table>
         <br><br>
@@ -21,19 +20,34 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="../HTML/index.html">Home</a>
             <a href="../HTML/index.html#log" style="font-size: large;">&emsp;&emsp;- Log In</a>
+            <a href="../HTML/index.html#miss" style="font-size: large;" onclick="goHomeLog(event)">&emsp;&emsp;- Mission Statement</a>
+            <a href="../HTML/index.html#vis" style="font-size: large;" onclick="goHomeLog(event)">&emsp;&emsp;- Vision Statement</a>
             <a href="../HTML/products.html" onclick="allow(event)">Products</a>
-            <a href="../HTML/about.html">About</a>
-            <a href="../HTML/cart.html" onclick="allow(event)">Invoice</a>
+            <a href="../HTML/about.html">About Us</a>
           </div>
         
-          <div class="main-content">
+        <div class="main-content">
             <button class="openbtn" onclick="openNav()">&#9776; Navigation</button>
-          </div>
-        
-          <script src="../Assets/script.js"></script>
-
+        </div>
         <br><br>
-        
+        <center><h1 class="heading">ABOUT US</h1></center>
+
+        <div style="border: solid #FF4500 5px; border-radius: 2%; width: 60%; margin: 50px auto; justify-content: left; padding-left: 10px;">
+            <center><h1>Walty's Peak Performance Gear</h1></center>
+            <h2>Owner's Information</h2>
+            <p>Name: Diwani Walters<br><br>
+            ID Number: 2303848<br><br>
+            Module Code: CIT2011<br><br>
+            Module Name: Web Programming<br><br>
+            Assignment Name: Individual Assignemnt 2<br><br>
+            Class Day: Monday<br><br>
+            Class Time: 5:00 pm<br><br>
+            <h2>Contact Us With Your Queries and Concerns Here:<a href="mailto:2303848@utech.edu.jm?subject=Comments/Queries" style="color: #FF4500; text-decoration: none;">
+                2303848@utech.edu.jm
+            </a></h2>
+            </p>
+        </div>
+                
         <div style="clear: both; text-align: center; margin-top: 20px;">
             <a href="#top"><button class="top" style="font-size: x-large;">&#128285;Top of the Page&#128285;</button></a>
         </div><br>
@@ -56,5 +70,6 @@
 
             <p>&copy; 2024 Walty's Gym Equipment. All Rights Reserved.</p>
         </footer>
+        <script src="../Assets/script.js"></script>
     </body>
 </html>
