@@ -3,19 +3,22 @@
     <head>
         <title>Performance Gear: Your Cart</title>
         <link rel="stylesheet" href="../Assets/style.css">
+
+        <style>
+            body{background: linear-gradient(rgba(255, 69, 0, 0.5), rgba(50, 205, 50, 0.8)), 
+                url('../Assets/Invoice Background.png') no-repeat center center fixed; background-size: cover; font-family: Arial, sans-serif; 
+                color: #333;}
+                table{width: 100%;margin-top: 20px; border-collapse: collapse;}
+                table, th, td{border: 1px solid #ddd; padding: 10px; text-align: left;}
+                th{background-color: #FF4500; color: white;}
+                td{background-color: #fff;}
+                .button-container{margin-top: 20px;}
+        </style>
     </head>
 
     <body>
         <a href="../HTML/index.html"><img src="../Assets/Gym Store Logo .png" alt="Image Not Found" width="12%" height="145px"></a>
-        <table class="heading">
-            <tr>
-                <td><a href="../HTML/index.html" onclick="goHome(event)">HOME</a></td>
-                <td><a href="../HTML/products.html">ALL PRODUCTS</a></td>
-                <td><a href="../HTML/about.html" onclick="goAbout(event)">ABOUT US</a></td>
-                <td><a href="../HTML/cart.html"class="active">INVOICE</a></td>
-            </tr>
-        </table>
-        <br><br> 
+        <br><br><br><br><br><br><br><br><br>
 
         <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -23,16 +26,47 @@
             <a href="../HTML/index.html#log" style="font-size: large;" onclick="goHomeLog(event)">&emsp;&emsp;- Log In</a>
             <a href="../HTML/products.html">Products</a>
             <a href="../HTML/about.html" onclick="goAbout(event)">About</a>
-            <a href="../HTML/cart.html">Invoice</a>
           </div>
         
-          <div class="main-content">
+        <div class="main-content">
             <button class="openbtn" onclick="openNav()">&#9776; Navigation</button>
-          </div>
-        
-          <script src="../Assets/script.js"></script>
-
+        </div>
         <br><br>
+        <div class="invoice-container">
+            <div class="logo">
+                <img src="../Assets/Gym Store Logo .png" alt="Logo">
+            </div>
+
+            <h1 class="heading" style="margin-right: 15%;">INVOICE</h1>
+
+            <div class="invoice-details">
+                <h2>Customer Invoice</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Subtotal</th>
+                            <th>Discount</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoice-items"><!--JS should do the display here--></tbody>
+                </table>
+    
+                <p><strong>Subtotal:</strong> <span id="invoice-subtotal">$0.00</span></p>
+                <p><strong>Tax (16%):</strong> <span id="invoice-tax">$0.00</span></p>
+                <p><strong>Total:</strong> <span id="invoice-total">$0.00</span></p>
+            </div>
+    
+            <div class="button-container">
+                <button class="cartButton" id="cancel">Cancel</button>
+                <button class="cartButton" id="exit">Exit</button>
+                <br><br>
+                <button class="printButton" id="print">Print Invoice</button>
+            </div>
+        </div>
         
         <div style="clear: both; text-align: center; margin-top: 20px;">
             <a href="#top"><button class="top" style="font-size: x-large;">&#128285;Top of the Page&#128285;</button></a>
@@ -47,7 +81,6 @@
                 Email: 2303848@utech.edu.jm
             </a>
             <br><br>
-        
             
             <a href="https://www.instagram.com/peak_performance_gear/" target="_blank" style="text-decoration: none;">
                 <button style="padding: 0; background: none;"><img height="30px" src="../Assets/Insta Icon.png" alt="Folow Us On Instagram" style="margin-top: 0px; margin-bottom: 0px; margin-right: 0px;;"></button>  
@@ -56,5 +89,7 @@
 
             <p>&copy; 2024 Walty's Gym Equipment. All Rights Reserved.</p>
         </footer>
+
+        <script src="../Assets/script.js"></script>
     </body>
 </html>

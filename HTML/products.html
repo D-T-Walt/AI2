@@ -8,24 +8,24 @@
         <style>
             .description{text-align: left;}
             
-            /*Different format for smaller screens (generally phones)*/
-            @media (max-width: 600px) {
+            /*Different format for smaller screens (Best on iPhone 12 )*/
+            @media (max-width: 600px){
                 body{background-color: #ffffff; font-size: 14px; padding: 10px;}
                 img{border-color: #32CD32; border-style: solid; border-width: 5px; border-radius: 35%; margin-top: 0px; margin-bottom: 10px; margin: 0 auto; float: none;
                      width: 35%;}
                 table.heading{padding: 40px; width: auto; font-size: 12px;}
                 td{border: 2px solid #32CD32; padding: 10px;}
-                .heading {text-align: center; font-size: 20px;}
-                .sidebar {top: 0; height: auto; margin-right: 0; right: 0; margin-left: auto;}
-                .openbtn {top: 0px; right: 0px; font-size: 18px;}
+                .heading{text-align: center; font-size: 20px;}
+                .sidebar{top: 0; height: auto; margin-right: 0; right: 0; margin-left: auto;}
+                .openbtn{top: 0px; right: 0px; font-size: 18px;}
                 .main-content{margin-right: 0; right: 0; margin-left: auto; padding: 10px;}
-                .products-container {display: flex; flex-direction: column; /*Stack products*/align-items: center; /*Center products*/}
-                .product {width: 100%; margin: 0 auto; margin-bottom: 20px; padding: 10px; box-sizing: border-box; /*Padding doesn't affect width*/}
-                .product img {width: 90%; /*Make images take up less space*/height: auto;}
-                .add-to-cart {width: 100%; padding: 10px;}
-                .cart {width: 90%; bottom: 0; top: 55%; height: min-content;}
-                footer {font-size: 12px;}
-                .top {width: 100%; padding: 10px;}
+                .products-container{display: flex; flex-direction: column; /*Stack products*/align-items: center; /*Center products*/}
+                .product{width: 100%; margin: 0 auto; margin-bottom: 20px; padding: 10px; box-sizing: border-box; /*Padding doesn't affect width*/}
+                .product img{width: 90%; /*Make images take up less space*/height: auto;}
+                .add-to-cart{width: 100%; padding: 10px;}
+                .cart{width: 90%; bottom: 0; top: 55%; height: min-content;}
+                footer{font-size: 12px;}
+                .top{width: 100%; padding: 10px;}
             }
         </style>
     </head>
@@ -37,7 +37,6 @@
                 <td><a href="../HTML/index.html" onclick="goHome(event)">HOME</a></td>
                 <td><a href="../HTML/products.html" class="active">ALL PRODUCTS</a></td>
                 <td><a href="../HTML/about.html" onclick="goAbout(event)">ABOUT US</a></td>
-                <td><a href="../HTML/cart.html">INVOICE</a></td>
             </tr>
         </table>
 
@@ -49,15 +48,12 @@
             <a href="../HTML/index.html#log" style="font-size: large;" onclick="goHomeLog(event)">&emsp;&emsp;- Log In</a>
             <a href="../HTML/products.html">Products</a>
             <a href="../HTML/about.html" onclick="goAbout(event)">About</a>
-            <a href="../HTML/cart.html">Invoice</a>
           </div>
         
           <div class="main-content">
             <button class="openbtn" onclick="openNav()">&#9776; Navigation</button>
           </div>
         
-          <script src="../Assets/script.js"></script>
-
           <center><h1 class="heading">PRODUCTS</h1></center>
           <center><h2>Feel Free To Browse And Select From Our Wide Range Of Available Items</h2></center>
         <br><br>
@@ -78,7 +74,7 @@
                     </ul>
                 </div>
                 
-                <span>$72,320.76</span><br>
+                <span>$72,320.76<sup>+GCT</sup></span><br>
                 <label>Quantity:</label>
                 <input type="number" id="quantity-1" value="1" min="1">
                 <button class="add-to-cart" data-name="Dumbbells" data-price="72320.76">Add to Cart</button>
@@ -99,7 +95,7 @@
                     </ul>
                 </div>
                 <br><br>
-                <span>$2,222.63</span><br>
+                <span>$2,222.63<sup>+GCT</sup></span><br>
                 <label>Quantity:</label>
                 <input type="number" id="quantity-2" value="1" min="1">
                 <button class="add-to-cart" data-name="10lb Plate" data-price="2222.63">Add to Cart</button>
@@ -120,7 +116,7 @@
                     </ul>
                 </div>
                 <br><br>
-                <span>$5,400.08</span><br>
+                <span>$5,400.08<sup>+GCT</sup></span><br>
                 <label>Quantity:</label>
                 <input type="number" id="quantity-3" value="1" min="1">
                 <button class="add-to-cart" data-name="25lb Plate" data-price="5400.08">Add to Cart</button>
@@ -141,7 +137,7 @@
                     </ul>
                 </div>
                 <br><br>
-                <span>$6,988.81</span><br>
+                <span>$6,988.81<sup>+GCT</sup></span><br>
                 <label>Quantity:</label>
                 <input type="number" id="quantity-4" value="1" min="1">
                 <button class="add-to-cart" data-name="35lb Plate" data-price="6988.81">Add to Cart</button>
@@ -161,8 +157,8 @@
                         <li>2 inches center hole</li>
                     </ul>
                 </div>
-                <br><br><br><br><br><br><br><br>
-                <span>$8,339.23</span><br>
+                <br><br><br><br><br><br><br><br><br>
+                <span>$8,339.23<sup>+GCT</sup></span><br>
                 <label>Quantity:</label>
                 <input type="number" id="quantity-5" value="1" min="1">
                 <button class="add-to-cart" data-name="45lb Plate" data-price="8339.23">Add to Cart</button>
@@ -184,8 +180,8 @@
                         <li>Distance Between Collars: 36.75</li>
                     </ul>
                 </div>
-                <br><br><br><br><br><br>
-                <span>$11,250.54</span><br>
+                <br><br><br><br><br><br><br><br><br>
+                <span>$11,250.54<sup>+GCT</sup></span><br> 
                 <label>Quantity:</label>
                 <input type="number" id="quantity-6" value="1" min="1">
                 <button class="add-to-cart" data-name="EZ Bar" data-price="11250.54">Add to Cart</button>
@@ -210,7 +206,7 @@
                     </ul>
                 </div>
                 <br><br><br><br>
-                <span>$22,083.31</span><br>
+                <span>$22,083.31<sup>+GCT</sup></span><br>
                 <label>Quantity:</label>
                 <input type="number" id="quantity-7" value="1" min="1">
                 <button class="add-to-cart" data-name="Barbell" data-price="22083.31">Add to Cart</button>
@@ -231,8 +227,8 @@
                         <li>Non-slip Mat</li>
                         <li>Mildew-resistant and Odor-free</li>
                     </ul>
-                </div>
-                <span>$3,338.29</span><br>
+                </div><br><br>
+                <span>$3,338.29<sup>+GCT</sup></span><br>
                 <label>Quantity:</label>
                 <input type="number" id="quantity-8" value="1" min="1">
                 <button class="add-to-cart" data-name="Gym Mats" data-price="3228.29">Add to Cart</button>
@@ -253,7 +249,7 @@
                     </ul>
                 </div>
                 <br><br><br><br>
-                <span>$35,110.87</span><br>
+                <span>$35,110.87<sup>+GCT</sup></span><br>
                 <label>Quantity:</label>
                 <input type="number" id="quantity-9" value="1" min="1">
                 <button class="add-to-cart" data-name="Work Bench" data-price="35110.87">Add to Cart</button>
@@ -274,7 +270,7 @@
                     </ul>
                 </div>
                 <br>
-                <span>$46,071.49</span><br>
+                <span>$46,071.49<sup>+GCT</sup></span><br>
                 <label>Quantity:</label>
                 <input type="number" id="quantity-10" value="1" min="1">
                 <button class="add-to-cart" data-name="Squat/ Bench Rack" data-price="46071.49">Add to Cart</button>
@@ -299,13 +295,13 @@
                     </ul>
                 </div>
                 <br><br><br>
-                <span>$74,511.30</span><br>
+                <span>$74,511.30<sup>+GCT</sup></span><br>
                 <label>Quantity:</label>
                 <input type="number" id="quantity-11" value="1" min="1">
                 <button class="add-to-cart" data-name="Smith Machine" data-price="74511.30">Add to Cart</button>
             </div>
 
-            <div class="product">
+            <div class="product" style="z-index: 1;">
                 <img src="../Assets/12- Cable Machine.webp" alt="Product 12" style="margin-left: 7px;">
                 <h3>Functional Trainer Cable Machine with Dual 200 lb Weight Stacks</h3>
                 <p>Description: Versatile functional trainer designed to elevate your fitness routine to new heights.</p>
@@ -324,7 +320,7 @@
                         <li>Split Grip Pull-Up Bar</li>
                     </ul>
                 </div>
-                <span>$379,546.88</span><br>
+                <span>$379,546.88<sup>+GCT</sup></span><br>
                 <label>Quantity:</label>
                 <input type="number" id="quantity-12" value="1" min="1">
                 <button class="add-to-cart" data-name="Cable Machine" data-price="379546.88">Add to Cart</button>
@@ -362,5 +358,6 @@
 
             <p>&copy; 2024 Walty's Gym Equipment. All Rights Reserved.</p>
         </footer>
+        <script src="../Assets/script.js"></script>
     </body>
 </html>
