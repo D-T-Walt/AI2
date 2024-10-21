@@ -14,10 +14,11 @@
                 td{background-color: #fff;}
                 .button-container{margin-top: 20px;}
         </style>
+
     </head>
 
     <body>
-        <a href="../HTML/index.html"><img src="../Assets/Gym Store Logo .png" alt="Image Not Found" width="12%" height="145px"></a>
+        <a href="../HTML/index.html" onclick="goHome(event)"><img src="../Assets/Gym Store Logo .png" alt="Image Not Found" width="12%" height="145px"></a>
         <br><br><br><br><br><br><br><br><br>
 
         <div id="mySidebar" class="sidebar">
@@ -55,16 +56,17 @@
                     <tbody id="invoice-items"><!--JS should do the display here--></tbody>
                 </table>
     
-                <p><strong>Subtotal:</strong> <span id="invoice-subtotal">$0.00</span></p>
-                <p><strong>Tax (16%):</strong> <span id="invoice-tax">$0.00</span></p>
-                <p><strong>Total:</strong> <span id="invoice-total">$0.00</span></p>
+                <p><b>Subtotal:</b> <span id="invoice-subtotal">$0.00</span></p>
+                <p><b>Tax (16%):</b> <span id="invoice-tax">$0.00</span></p>
+                <p><b>Total:</b> <span id="invoice-total">$0.00</span></p>
             </div>
     
             <div class="button-container">
                 <button class="cartButton" id="cancel">Cancel</button>
                 <button class="cartButton" id="exit">Exit</button>
-                <br><br>
-                <button class="printButton" id="print">Print Invoice</button>
+                <br><br><br><br>
+                
+                <b><span>Press CTRL + S to Save a Copy of your Invoice</span></b>
             </div>
         </div>
         
