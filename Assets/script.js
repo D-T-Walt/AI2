@@ -138,9 +138,13 @@ document.addEventListener('DOMContentLoaded', function (){
     // Exit button functionality
     const exitButton = document.getElementById('exit');
     exitButton.addEventListener('click', function (){
-        if (confirm("Are you sure you want to exit?")){
+        if (productNames.length === 0){
             window.location.href = '../HTML/index.html'; // Redirect to home page
         }
+        else
+            if (confirm("Are you sure you want to exit? YOU WILL HAVE TO RELOGIN AND SELECT YOUR ITEMS AGAIN")){
+                window.location.href = '../HTML/index.html'; // Redirect to home page
+            } 
     });
 });
 
@@ -212,7 +216,7 @@ function cancelInvoice(){
 
 // Function to exit invoice
 function exitInvoice(){
-    if (confirm("Are you sure you want to exit?")){
+    if (confirm("Are you sure you want to exit? YOU WILL HAVE TO RELOGIN AND SELECT ITEMS AGAIN IF THE INVOICE IS POPULATED")){
         localStorage.removeItem('productNames');
         localStorage.removeItem('productPrices');
         localStorage.removeItem('productQuantities');
