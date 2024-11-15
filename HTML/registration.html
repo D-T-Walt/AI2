@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Performance Gear: Registration</title>        
+        <link rel="stylesheet" href="../CSS/style.css">
+        <script>
+           
+        </script>
+        <style>
+            p.body{border: 6px solid #32CD32; padding: 20px; width: 45%; margin: 50px auto; font-size: larger; text-align: justify;}
+        </style>
+    </head>
+
+    <body>
+
+        <div class = "header">
+            <a href="../HTML/index.html" onclick="goHome(event)"><img src="../Assets/Gym Store Logo .png" alt="Image Not Found" width="150px" height="150px"></a>
+            <table class="heading">
+                <tr>
+                    <td><a href="../HTML/index.html">HOME</a></td>
+                    <td><a href="../HTML/products.html"  onclick="allow(event)">ALL PRODUCTS</a></td>
+                    <td><a href="../HTML/about.html">ABOUT US</a></td>
+                </tr>
+            </table>
+        </div>      
+       
+
+            <div id="mySidebar" class="sidebar">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="../HTML/index.html" onclick="goHome(event)">Home</a>
+                <a href="../HTML/index.html#log" style="font-size: large;" onclick="goHomeLog(event)">&emsp;&emsp;- Log In</a>
+                <a href="../HTML/index.html#miss" style="font-size: large;" onclick="goHomeMiss(event)">&emsp;&emsp;- Mission Statement</a>
+                <a href="../HTML/index.html#vis" style="font-size: large;" onclick="goHomeVis(event)">&emsp;&emsp;- Vision Statement</a>
+                <a href="../HTML/products.html">Products</a>
+                <a href="../HTML/cart.html">Cart</a>
+                <a href="../HTML/about.html" onclick="goAbout(event)">About Us</a>
+            </div>
+        
+         
+        <div class="main-content">
+            <button class="openbtn" onclick="openNav()">&#9776; Navigation</button>
+        </div>
+
+        <center><h1 class="heading">WELCOME TO WALTY'S PEAK PERFORMANCE GEAR</h1></center>
+        <center><h2>Please  <font color="32CD32">Register</font> and then  <font color="32CD32">Login</font> to gain access to the Product's Page</h2></center>  
+
+        <div>
+            <center>
+        <video src="../Assets/Gym Stock Footage.mp4" autoplay loop muted style=" border-radius: 15px ; margin-left: 20px; border:5px solid #32CD32" height="20%" width="50%">Your browser does not support the video tag.</video>
+            </center>       
+        </div>
+    
+        <div>
+        <center>
+        <form name="form1" id="registrationForm" onsubmit="register(event)">
+            <fieldset style="border: 5px solid #FF4500; padding: 15px; height: 600px; width: 500px; border-radius: 15px; ">
+                <a name="register"></a><legend style="text-align: center;"><h1>Register</h1></legend></a>
+
+                <label>First Name<font color="red">*</font></label><br>
+                <input type="text" id="fname" name= "tb1" min="1" required><br><br>
+
+                <label>Last Name<font color="red">*</font></label><br>
+                <input type="text" id="lname" name= "tb2" min="1" required><br><br>
+
+                <label>Date of Birth<font color="red">*</font></label><br>
+                <input type="date" id="dob" name= "tb3"required><br><br>
+
+                <label>Gender: <font color="red">*</font></label><br>
+                <input type="text" id="gender" name= "tb4" min="1"required pattern="^[MF]$" placeholder="M / F" title="Capital M or F ONLY"><br><br>
+
+                <label>Phone Number<font color="red">*</font></label><br>
+                <input type="text" id="phone" name= "tb5" required pattern="\d{7,10}" placeholder="000000000" title="Format: 7 - 10 numbers ONLY"><br><br>
+
+                <label>Email address <font color="red">*</font></label><br>
+                <input type="email" id="email" name= "tb6"required><br><br>
+
+                <label>Tax Registration Number (TRN) <font color="red">*</font></label><br>
+                <input type="text" id="trn" name= "tb7"placeholder="000-000-000" required pattern="\d{3}-\d{3}-\d{3}" title="Format: 000-000-000" ><br><br>
+
+                <label>Password <font color="red">*</font></label><br>
+                <input type="password" id="pass"name="tb8" min="8" required><br><br><br>
+
+                
+                <input class="sub" type="submit" value="REGISTER">
+                <input class="sub" type="reset" value="CLEAR" onclick="resetForm()">
+            </fieldset>
+        </form>
+        </center>
+    </div>
+    
+        
+
+        <div style="clear: both; text-align: center; margin-top: 20px;">
+            <a href="#top"><button class="top" style="font-size: x-large;">&#128285;Top of the Page&#128285;</button></a>
+        </div><br>
+        
+        <footer>
+            <p>Contact Us:</p>
+            <a href="tel: +8768502495" style="color: #FF4500; text-decoration: none;">
+                Contact Number: 1 (876) 850-2495
+            </a><br>
+            <a href="mailto:2303848@utech.edu.jm?subject=Comments/Queries" style="color: #FF4500; text-decoration: none;">
+                Email: 2303848@utech.edu.jm
+            </a>
+            <br><br>
+        
+            
+            <a href="https://www.instagram.com/peak_performance_gear/" target="_blank" style="text-decoration: none;">
+                <button style="padding: 0; background: none;"><img height="30px" src="../Assets/Insta Icon.png" alt="Folow Us On Instagram" style="margin-top: 0px; margin-bottom: 0px; margin-right: 0px;;"></button>  
+            </a>
+            <br><br>
+
+            <p>&copy; 2024 Walty's Gym Equipment. All Rights Reserved.</p>
+        </footer>
+        <script src="../JS/script.js"></script>
+        <script src="../JS/regScript.js"></script>
+    </body>
+</html>

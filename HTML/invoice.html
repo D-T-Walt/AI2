@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Performance Gear: Invoice</title>
+        <link rel="stylesheet" href="../CSS/style.css">
+
+        <style>
+            body{background: linear-gradient(rgba(255, 69, 0, 0.5), rgba(50, 205, 50, 0.8)), 
+                url('../Assets/Invoice Background.png') no-repeat center center fixed; background-size: cover; font-family: Arial, sans-serif; 
+                color: #333;}
+            table{width: 100%;margin-top: 20px; border-collapse: collapse;}
+            table, th, td{border: 1px solid #ddd; padding: 10px; text-align: left;}
+            th{background-color: #FF4500; color: white;}
+            td{background-color: #fff;}
+            .button-container{margin-top: 20px;}
+
+            .invoice-header {
+                text-align: right;
+                display: flex;                  
+                flex-wrap: wrap;                
+                justify-content: space-between; 
+                margin-bottom: 20px;            
+            }
+
+            .invoice-header p {
+                margin: 5px 0;                     
+                line-height: 1.5;                  
+                color: #ddd;
+            }
+
+            /* Align "Company Name" and similar texts more inline */
+            .invoice-header b {
+                display: inline-block;             
+                margin-right: 10px;                
+            }
+
+            .invoice-totals {
+                background-color: #f4f4f4; 
+                padding: 15px;              
+                border-radius: 5px;         
+                margin-top: 20px;           
+                text-align: center;          
+                font-size: 1.2em;           
+                max-width: 300px;           
+                margin-left: auto;          
+                margin-right: auto;         
+            }
+
+            .invoice-totals p {
+                margin: 10px 0;             
+            }
+
+            .invoice-totals b {
+                color: #FF4500;             
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+        <a href="../HTML/index.html" onclick="goHome(event)"><img src="../Assets/Gym Store Logo .png" alt="Image Not Found" width="12%" height="145px"></a>
+        <br><br><br><br><br><br><br><br><br>
+
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="../HTML/index.html" onclick="goHome(event)">Home</a>
+            <a href="../HTML/index.html#log" style="font-size: large;" onclick="goHomeLog(event)">&emsp;&emsp;- Log In</a>
+            <a href="../HTML/index.html#miss" style="font-size: large;" onclick="goHomeMiss(event)">&emsp;&emsp;- Mission Statement</a>
+            <a href="../HTML/index.html#vis" style="font-size: large;" onclick="goHomeVis(event)">&emsp;&emsp;- Vision Statement</a>
+            <a href="../HTML/products.html">Products</a>
+            <a href="../HTML/about.html" onclick="goAbout(event)">About Us</a>
+          </div>
+        
+        <div class="main-content">
+            <button class="openbtn" onclick="openNav()">&#9776; Navigation</button>
+        </div>
+        <br><br>
+        <div class="invoice-container">
+            <div class="logo">
+                <img src="../Assets/Gym Store Logo .png" alt="Logo">
+            </div> 
+            
+            <h1 class="heading" style="margin-right: 20%;">INVOICE</h1>
+
+            <!-- Invoice Header Details -->
+            <div class="invoice-header">
+                <p><b>Company Name:</b> Walty's Peak Performance Gear</p>
+                <p><b>Date of Invoice:</b> <span id="invoice-date">[Date]</span></p>
+                <p><b>Invoice Number:</b> <span id="invoice-number">[Invoice Number]</span></p>
+                <p><b>TRN:</b> <span id="trn">[TRN]</span></p>
+                <p><b>Shipping Information:</b> <span id="shipping-info">[Customer Shipping Details]</span></p>
+            </div>
+
+            <div class="invoice-details">
+                <h2>Customer Invoice</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Subtotal</th>
+                            <th>Discount</th>
+                            <th>Tax</th>
+                            <th>Total<sup> +GCT</sup></th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoice-items"><!--JS should do the display here--></tbody>
+                </table>
+    
+                <div class="invoice-totals">
+                    <p><b>Subtotal:</b> <span id="invoice-subtotal">$0.00</span></p>
+                    <p><b>Tax (16%):</b> <span id="invoice-tax">$0.00</span></p>
+                    <p><b>Total:</b> <span id="invoice-total">$0.00</span></p>
+                </div>
+
+            </div>
+    
+            <div class="button-container">
+                <button class="cartButton" id="cancel">Cancel</button>
+                <button class="cartButton" id="exit">Exit</button>
+                <br><br><br><br>
+
+                <b><span>Press CTRL + S to Save a Copy of your Invoice<br>Save as type: Webpage, Complete</span></b>
+            </div>
+        </div>
+        
+        <div style="clear: both; text-align: center; margin-top: 20px;">
+            <a href="#top"><button class="top" style="font-size: x-large;">&#128285;Top of the Page&#128285;</button></a>
+        </div><br>
+        
+        <footer>
+            <p>Contact Us:</p>
+            <a href="tel: +8768502495" style="color: #FF4500; text-decoration: none;">
+                Contact Number: 1 (876) 850-2495
+            </a><br>
+            <a href="mailto:2303848@utech.edu.jm?subject=Comments/Queries" style="color: #FF4500; text-decoration: none;">
+                Email: 2303848@utech.edu.jm
+            </a>
+            <br><br>
+            
+            <a href="https://www.instagram.com/peak_performance_gear/" target="_blank" style="text-decoration: none;">
+                <button style="padding: 0; background: none;"><img height="30px" src="../Assets/Insta Icon.png" alt="Folow Us On Instagram" style="margin-top: 0px; margin-bottom: 0px; margin-right: 0px;;"></button>  
+            </a>
+            <br><br>
+
+            <p>&copy; 2024 Walty's Gym Equipment. All Rights Reserved.</p>
+        </footer>
+
+        <script src="../JS/script.js"></script>
+    </body>
+</html>

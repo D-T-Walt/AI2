@@ -2,19 +2,20 @@
 <html>
     <head>
         <title>Performance Gear: About Us</title>
-        <link rel="stylesheet" href="../Assets/style.css">
+        <link rel="stylesheet" href="../CSS/style.css">
     </head>
 
     <body>
-        <a href="../HTML/index.html"><img src="../Assets/Gym Store Logo .png" alt="Image Not Found" width="12%" height="145px"></a>
-        <table class="heading">
-            <tr>
+        <div class = "header">
+            <a href="../HTML/index.html" onclick="goHome(event)"><img src="../Assets/Gym Store Logo .png" alt="Image Not Found" width="150px" height="150px"></a>
+            <table class="heading">
                 <td><a href="../HTML/index.html">HOME</a></td>
                 <td><a href="../HTML/products.html" onclick="allow(event)">ALL PRODUCTS</a></td>
                 <td><a href="../HTML/about.html" class="active">ABOUT US</a></td>
             </tr>
-        </table>
-        <br><br>
+            </table>
+        </div>
+   
 
         <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -23,6 +24,7 @@
             <a href="../HTML/index.html#miss" style="font-size: large;" onclick="goHomeLog(event)">&emsp;&emsp;- Mission Statement</a>
             <a href="../HTML/index.html#vis" style="font-size: large;" onclick="goHomeLog(event)">&emsp;&emsp;- Vision Statement</a>
             <a href="../HTML/products.html" onclick="allow(event)">Products</a>
+            <a href="../HTML/cart.html">Cart</a>
             <a href="../HTML/about.html">About Us</a>
           </div>
         
@@ -70,6 +72,6 @@
 
             <p>&copy; 2024 Walty's Gym Equipment. All Rights Reserved.</p>
         </footer>
-        <script src="../Assets/script.js"></script>
+        <script src="../JS/script.js"></script>
     </body>
 </html>
