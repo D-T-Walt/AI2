@@ -84,8 +84,8 @@
             
         <div>
             <center>
-        <form name="form1" id="loginForm" style="margin-left: 35px;" onsubmit="login(event)">
-            <fieldset style="border: 4px solid #FF4500; padding: 10px; height: 250px; width: 100%;">
+        <form name="form1" id="loginForm" onsubmit="login(event)">
+            <fieldset style="border: 4px solid #FF4500; padding: 10px; height: 250px; width: 100%; border-radius: 15px;">
                 <a name="log"></a><legend style="text-align: center;"><h1>Login</h1></legend></a>
                 <label>Username or email address <font color="red">*</font></label><br>
                 <input type="text" id="user" name= "tb1" min="1" required><br><br>
@@ -93,14 +93,14 @@
                 <label>Password <font color="red">*</font></label><br>
                 <input type="password" id="pass"name="tb2" min="8" required><br><br><br>
 
-                <center><input class="sub" type="reset" value="CLEAR" >
-                <input class="sub" type="submit" value="LOGIN"></center>
-            </fieldset>
-        
-        
+                <center>
+                    <input class="sub" type="submit" value="LOGIN">
+                    <input class="sub" type="reset" value="CLEAR" >
+                </center>
+            </fieldset>        
         </form>
     </center>
-    </div><br><br><br><br><br><br><br>
+    </div>
         
 
         <div style="clear: both; text-align: center; margin-top: 20px;">
