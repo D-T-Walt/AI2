@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function (){
             const HTML= `
                 <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; left: 0;">
                     <div class="cart-image">
-                        <img src="${item.image}" alt="${item.name}" style="width: 220px; height: auto;">
+                        <img src="${item.image}" alt="${item.name}" style="width: 28%; height: auto;">
                     </div>
                     <div class="item-detail">
                         <h3 style="color: #FF4500;">${item.name}</h3>
