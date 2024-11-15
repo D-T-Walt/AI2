@@ -16,7 +16,7 @@
             <a href="../HTML/index.html" onclick="goHome(event)"><img src="../Assets/Gym Store Logo .png" alt="Image Not Found" width="150px" height="150px"></a>
             <table class="heading">
                 <tr>
-                    <td><a href="../HTML/index.html">HOME</a></td>
+                    <td><a href="../HTML/index.html "class="active">HOME</a></td>
                     <td><a href="../HTML/products.html"  onclick="allow(event)">ALL PRODUCTS</a></td>
                     <td><a href="../HTML/about.html">ABOUT US</a></td>
                 </tr>
@@ -76,9 +76,14 @@
             community where wellness, and strength thrive.</p>
 
         <br><br>
-        <video src="../Assets/Gym Stock Footage.mp4" autoplay loop muted style="float: left; margin-left: 20px; border:5px solid #32CD32" height="10%" width="30%">Your browser does not support the video tag.</video>
-        
-        
+        <div>
+            <center>
+        <video src="../Assets/Gym Stock Footage.mp4" autoplay loop muted style="margin-left: 20px; border:5px solid #32CD32" height="10%" width="30%">Your browser does not support the video tag.</video>
+    </center> 
+    </div>
+            
+        <div>
+            <center>
         <form name="form1" id="loginForm" style="float: left; margin-left: 35px;" onsubmit="login(event)">
             <fieldset style="border: 4px solid #FF4500; padding: 10px; height: 250px; width: 100%;">
                 <a name="log"></a><legend style="text-align: center;"><h1>Login</h1></legend></a>
@@ -91,8 +96,12 @@
                 <center><input class="sub" type="reset" value="CLEAR" >
                 <input class="sub" type="submit" value="LOGIN"></center>
             </fieldset>
-        </form><br><br><br><br><br><br><br>
-        <video src="../Assets/Gym Stock Footage.mp4" autoplay loop muted style="float: right; margin-right: 20px; border:5px solid #32CD32" height="10%" width="30%"></video>
+        
+        
+        </form>
+    </center>
+    </div><br><br><br><br><br><br><br>
+        
 
         <div style="clear: both; text-align: center; margin-top: 20px;">
             <a href="#top"><button class="top" style="font-size: x-large;">&#128285;Top of the Page&#128285;</button></a>
