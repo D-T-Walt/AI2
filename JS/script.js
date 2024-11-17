@@ -65,6 +65,9 @@ function goAbout(event){
     }
 }
 
+//
+
+
 //Function to display the invoice
 function displayInvoice(){
 
@@ -164,6 +167,8 @@ document.addEventListener('DOMContentLoaded', function (){
         displayInvoice();
     }
 });
+
+
 
 
 

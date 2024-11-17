@@ -1,5 +1,6 @@
-// REGISTRATION PAGE SCRIPTS
-//soon comment when finished
+// REGISTRATION PAGE SCRIPTS and LOGIN PAGE SCRIPT
+
+//Registration Page Script
 function register(event)
 {
     event.preventDefault();
@@ -44,15 +45,15 @@ function register(event)
         trn: document.getElementById("trn").value,
         password: document.getElementById("pass").value,
         registerDate: new Date(),
-        cart:[],
+        cart:{},
         invoice: []
     }
 
-    let existingData = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+    let existingData = JSON.parse(localStorage.getItem('RegistrationData')) || [];
 
     existingData.push(RegistrationData);
 
-    localStorage.setItem("RegistrationData",JSON.stringify(existingData));
+    localStorage.setItem('RegistrationData',JSON.stringify(existingData));
 
     alert("Registration Successful");
 
@@ -60,7 +61,7 @@ function register(event)
 }
 
 function isUniqueTRN(trn) {
-    let existingData = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+    let existingData = JSON.parse(localStorage.getItem('RegistrationData')) || [];
     
     // Check if any registration has the same TRN
      for (let i = 0; i < existingData.length; i++) {
@@ -73,6 +74,62 @@ function isUniqueTRN(trn) {
     return true;
 }
 
+
+let count= 0; 
+
+function login(event)
+{
+    event.preventDefault();
+    let existingData = JSON.parse(localStorage.getItem('RegistrationData')) || [];
+        
+    const enterTRN = document.getElementById('trn').value.trim();
+    const enterP = document.getElementById('pass').value.trim();
+    
+
+    let isUser = false;
+    let loggedUser = null;
+
+    for (let i = 0; i < existingData.length; i++)
+         {
+
+            if(existingData[i].trn === enterTRN && existingData[i].password === enterP)
+            {
+                isUser = true;
+                loggedUser = existingData[i];
+                break;                
+            }
+         }
+
+            if(isUser)
+            {
+                localStorage.setItem('CurrentUser', JSON.stringify(loggedUser)); 
+                alert("Login successful!");
+                window.location.href = "../HTML/products.html";
+            }
+            else
+            {
+                count++;
+                alert("Invalid TRN or password. You have "+ (3- (count))+ " attempts left");
+                
+            }        
+
+            if(count>= 3)
+            {
+                window.location.href= "../HTML/error.html";
+            }
+        
+}
+
+function resetRegistrationData()
+{
+    if (confirm("This action will delete ALL Registration Data from your device's local storage. Do you wish to continue?"))
+    {    
+        localStorage.removeItem("RegistrationData");
+        alert("Registration data has been reset!");
+    }
+}
+
+
 function resetForm() {
     if (confirm("Are you sure you want to clear the form?")) {
         document.getElementById("registrationForm").reset();
@@ -82,27 +139,63 @@ function resetForm() {
 
 //LOGIN Script
 
-const sampleTRN= "123-123-123";
-            const samplePass= "P@$$word";
+function resetLoginForm()
+{
+    if (confirm("Are you sure you want to clear the form?")) {
+        document.getElementById("loginForm").reset();
+    }
+}
 
-            let count= 0; 
+function resetPassword()
+{
+    const enterTRN = document.getElementById('trn').value.trim();
+    let existingData = JSON.parse(localStorage.getItem('RegistrationData')) || [];
 
-            function login(event){
-                event.preventDefault();
-                const enterU= document.getElementById('user').value;
-                const enterP= document.getElementById('pass').value;
+    if (!enterTRN) {
+        alert("Please enter your TRN before resetting your password.");
+        return; // Exit the function early
+    }
 
-                if(enterU=== sampleUser && enterP=== samplePass){
-                    window.location.href= "../HTML/products.html";
-                }
-                else{
-                    alert("Invalid username or password. You have "+ (3- (count+1))+ " attempts left");
-                    count++;
-                }
+    let userReset = null;
+   
+    // Find the user with the matching TRN
+    for (let i = 0; i < existingData.length; i++) {
+        if (existingData[i].trn === enterTRN) {
+            userReset = existingData[i];
+            break; // Stop the loop once we find the user
+        }
+    }
 
-                if(count>= 3){
-                    window.location.href= "../HTML/error.html";
+    // If the user is found, allow them to reset their password
+    if(userReset)
+    {
+        const newPassword = prompt("Enter a new password for your account");
+
+        if (newPassword)
+        {
+             // Update the password directly
+            userReset.password = newPassword;
+
+            // Update the user in the existingData array
+            for (let i = 0; i < existingData.length; i++) {
+                if (existingData[i].trn === enterTRN) {
+                    existingData[i] = userReset; // Replace the old user object with the updated one
+                    break; // Exit the loop once the user is updated
                 }
             }
+             // Save the updated data back to localStorage
+            localStorage.setItem('RegistrationData', JSON.stringify(existingData));
+
+            alert("Your password has been reset successfully!");
+        }
+        }
+        else
+        {
+            alert("The TRN you entered is not registered.");
+        }
+    }
+
+
+
 
 

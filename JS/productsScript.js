@@ -1,6 +1,24 @@
-const TAX_RATE= 0.16;
-const DISCOUNT_THRESHOLD= 5;
-const DISCOUNT_RATE= 0.1;
+const TAX_RATE = 0.16;
+const DISCOUNT_THRESHOLD = 5;
+const DISCOUNT_RATE = 0.1;
+
+// Retrieve RegistrationData and logged user
+const registrationData = JSON.parse(localStorage.getItem('RegistrationData')) || [];
+const loggedUser = JSON.parse(localStorage.getItem('CurrentUser'));
+
+if (!loggedUser || !loggedUser.trn) {
+    alert("No logged-in user found. Redirecting to login page.");
+    window.location.href = "index.html";
+}
+
+// Retrieve the current user's data
+const userIndex = registrationData.findIndex(user => user.trn === loggedUser.trn);
+if (userIndex === -1) {
+    alert("User not found in registration data. Please register or log in again.");
+    window.location.href = "index.html";
+}
+
+const userCart = registrationData[userIndex]?.cart || [];
 
 //Array of prducts objects
 const allProducts= [
@@ -60,7 +78,6 @@ localStorage.setItem('AllProducts', JSON.stringify(allProducts));
 document.addEventListener('DOMContentLoaded', function () {
     const list = document.getElementById('products');
     const products = JSON.parse(localStorage.getItem('AllProducts')) || []; // Retrieve all products
-    const cart = JSON.parse(localStorage.getItem('Cart')) || []; // Retrieve existing cart or initialize empty
 
     // Display each product
     products.forEach((product, index) => {
@@ -79,20 +96,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Add to Cart functionality
     document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', function () {
-            const index = this.getAttribute('data-index');
-            const quantity = parseInt(document.getElementById(`quantity-${index}`).value);
-            const existingProduct = cart.find(item => item.name === products[index].name);
+     button.addEventListener('click', function () {
+          const index = this.getAttribute('data-index');
+          const quantity = parseInt(document.getElementById(`quantity-${index}`).value);
+          const selectedProduct = products[index];
 
-            if (existingProduct) {
-                existingProduct.quantity += quantity; // Update quantity
-            } else {
-                cart.push({ ...products[index], quantity }); // Add new product to cart
-            }
+          // Check if the product already exists in the user's cart
+          if (userCart[selectedProduct.name]) {
+              userCart[selectedProduct.name].quantity += quantity; // Update quantity
+          } else {
+              userCart[selectedProduct.name] = { ...selectedProduct, quantity }; // Add new product
+          }
 
-            // Save updated cart to localStorage
-            localStorage.setItem('Cart', JSON.stringify(cart));
-            alert(`${products[index].name} has been added to your cart.`);
+          // Update user's cart in RegistrationData
+          registrationData[userIndex].cart = userCart;
+          const name =registrationData[userIndex].firstName
+
+          // Save updated RegistrationData to localStorage
+          localStorage.setItem('RegistrationData', JSON.stringify(registrationData));
+          alert(`${selectedProduct.name} has been added to your cart, ${name}.`);
         });
     });
 });

@@ -15,33 +15,40 @@
             @media (max-width: 600px){
                 body{background-color: #ffffff; font-size: 14px; padding: 10px;}
                 img{border-color: #32CD32; border-style: solid; border-width: 5px; border-radius: 35%; margin-top: 0px; margin-bottom: 10px; margin: 0 auto; float: none;
-                     width: 35%;}
-                table.heading{padding: 40px; width: auto; font-size: 12px;}
-                td{border: 2px solid #32CD32; padding: 10px;}
-                .heading{text-align: center; font-size: 20px;}
+                     width: 89%;}
+                table.heading{padding: 10px; width: 100%; font-size: 12px; margin-bottom: 20px;}
+                td{border: 2px solid #32CD32; border-radius: 5px; padding: 10px;}
                 .sidebar{top: 0; height: auto; margin-right: 0; right: 0; margin-left: auto;}
-                .openbtn{top: 0px; right: 0px; font-size: 18px;}
+                .openbtn{top: 0px; right: 0px; font-size: 16px;}
+                .closebtn{font-size: 18px;}
                 .main-content{margin-right: 0; right: 0; margin-left: auto; padding: 10px;}
-                .products-container{display: flex; flex-direction: column; /*Stack products*/align-items: center; /*Center products*/}
-                .product{width: 100%; margin: 0 auto; margin-bottom: 20px; padding: 10px; box-sizing: border-box; /*Padding doesn't affect width*/}
-                .product img{width: 90%; /*Make images take up less space*/height: auto;}
-                .add-to-cart{width: 100%; padding: 10px;}
-                .cart{width: 90%; bottom: 0; top: 55%; height: min-content;}
-                footer{font-size: 12px;}
-                .top{width: 100%; padding: 10px;}
+                .invoice-container {text-align: center; margin-right: 0;}
+                .invoice-container h1 {font-size: 18px;}    
+                #cart-items {text-align: center; padding: 10px;}
+                .cart {width: 21%; margin: 0 auto; padding: 10px; text-align: left; right: 72%; border-radius: 15px;}
+                .cart h2 {font-size: 16px; text-align: center;}
+                .cart-image{scale: 1.8; margin-top: 12%; margin-bottom: 10%;}
+                .button-container {text-align: center;}
+                .cartButton {width: 100%; padding: 10px; margin: 5px 0;font-size: 14px;}
+                .top{width: 62%; padding: 10px; font-size: 16px;}
+                footer {font-size: 12px;padding: 10px; text-align: center;}
+                footer a {display: block;font-size: 12px; color: #FF4500;}
+                footer button img {width: 20px; height: auto;}
+                footer p {font-size: 12px; margin: 5px 0;}
             }
         </style>
 </head>
 <body>
-    <a href="../HTML/index.html" onclick="goHome(event)"><img src="../Assets/Gym Store Logo .png" alt="Image Not Found" width="12%" height="145px"></a>
-    <table class="heading">
-        <tr>
-            <td><a href="../HTML/index.html">HOME</a></td>
-            <td><a href="../HTML/products.html">ALL PRODUCTS</a></td>
-            <td><a href="../HTML/about.html">ABOUT US</a></td>
-        </tr>
-    </table>
-
+    <div class="header">
+        <a href="../HTML/index.html" onclick="goHome(event)"><img src="../Assets/Gym Store Logo .png" alt="Image Not Found" height="145px"></a>
+        <table class="heading">
+            <tr>
+                <td><a href="../HTML/index.html">HOME</a></td>
+                <td><a href="../HTML/products.html">ALL PRODUCTS</a></td>
+                <td><a href="../HTML/about.html">ABOUT US</a></td>
+            </tr>
+        </table>
+    </div>
     <br><br>
 
     <div id="mySidebar" class="sidebar">
@@ -60,7 +67,36 @@
     </div>
     <br><br>
 
-    <div class="checkout-container"></div>
+    <div class="checkout-container">
+        <h1 class="heading">CHECKOUT</h1>
+        <div class="checkout-content">
+            
+            <!--Cart Summary-->
+            <div class="cart-summary" >
+                <h2 style="color: #FF4500;">Cart Summary</h2>
+                Subtotal: $<span id="subtotal"></span><br></br>
+                Tax (16%): $<span id="tax"></span><br></br>
+                Discount (10%): $<span id="discount"></span><br></br>
+                Total: $<span id="total"></span>
+            </div><br>
+
+            <!--Shipping Details-->
+            <div class="shipping-details">
+                <h2 style="color: #FF4500;">Shipping Details</h2>
+                <label for="name">Name: </label>
+                <input type="text" id="name" placeholder="Enter your full name" required></br></br>
+                <label for="address">Address:</label>
+                <textarea id="address" placeholder="Enter your shipping address" required></textarea></br></br>
+                <label for="amount-paid">Amount Paid:</label>
+                <input type="number" id="amount-paid" placeholder="Enter the amount paid" required></br></br>
+            </div>
+        </div>
+        </br>
+        <div>
+            <button class="cartButton" onclick="confirmCheckout()">Confirm</button>
+            <button class="cartButton" onclick="backToCart()">Cancel</button>
+        </div>
+    </div>
 
     <div style="clear: both; text-align: center; margin-top: 20px;">
         <a href="#top"><button class="top" style="font-size: x-large;">&#128285;Top of the Page&#128285;</button></a>
@@ -83,6 +119,40 @@
 
         <p>&copy; 2024 Walty's Gym Equipment. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        let subtotal = JSON.parse(localStorage.getItem('Subtotal'));
+        let tax = JSON.parse(localStorage.getItem('Tax'));
+        let discount = JSON.parse(localStorage.getItem('Discount'));
+        let total = JSON.parse(localStorage.getItem('Total'));
+
+        document.getElementById('subtotal').innerHTML = subtotal.toFixed(2);
+        document.getElementById('tax').innerHTML = tax.toFixed(2);
+        document.getElementById('discount').innerHTML = discount.toFixed(2);
+        document.getElementById('total').innerHTML = total.toFixed(2);
+
+        function confirmCheckout(){
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const amountPaid = parseFloat(document.getElementById('amount-paid').value);
+
+            if (!name || !address || isNaN(amountPaid)) {
+                alert('Please fill in all fields!');
+                return;
+            }
+
+            //Local Storage
+            localStorage.setItem('name', JSON.stringify(name));
+            localStorage.setItem('address', JSON.stringify(address));
+            localStorage.setItem('amount-paid', amountPaid.toFixed(2));
+
+            window.location.href = 'invoice.html';
+        }
+
+        function backToCart(){
+            window.location.href = 'cart.html';
+        }
+    </script>
 
     <script src="../JS/script.js"></script>
     <script src="../JS/productsScript.js"></script>
