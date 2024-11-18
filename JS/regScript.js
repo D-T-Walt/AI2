@@ -23,7 +23,7 @@ function register(event)
     today.getMonth() < dob.getMonth() || 
     // If the current month is the same as the birth month, check if today's date is earlier than the birth date
     (today.getMonth()=== dob.getMonth() && today.getDate() < dob.getDate())
-        ){ // If either of the above are met, it means the birthday hasn't occurred yet this year, so age is reduced by 1
+        ){// If either of the above are met, it means the birthday hasn't occurred yet this year, so age is reduced by 1
         age--;
       }
 
@@ -126,7 +126,7 @@ function login(event)
 
 //Clears all that is stored in the local storage of RegistrationData
 function resetRegistrationData(){
-    if (confirm("This action will delete ALL Registration Data and Invoices from your device's local storage. Do you wish to continue?")){    
+    if (confirm("This action will delete ALL Registration Data and Invoices from your device's local storage. Do you wish to continue?")){  
         localStorage.removeItem("RegistrationData");
         localStorage.removeItem("AllInvoices");
         alert("Registration data has been reset!");

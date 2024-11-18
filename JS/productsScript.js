@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function (){
           if (userCart[selectedProduct.name]){
               userCart[selectedProduct.name].quantity += quantity; // Update quantity
           } else{
-              userCart[selectedProduct.name]={ ...selectedProduct, quantity }; // Add new product
+              userCart[selectedProduct.name]={...selectedProduct, quantity }; // Add new product
           }
 
           // Update user's cart in RegistrationData
