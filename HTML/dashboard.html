@@ -1,0 +1,139 @@
+<!--Javone - Anthony Gordon – 2206126
+Kemone Laws – 2109446
+Olivia McFarlane – 2301555
+Diwani Walters – 2303848-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Performance Gear: Registration</title>        
+        <link rel="stylesheet" href="../CSS/style.css">
+        <script>
+           
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            p.body{border: 6px solid #32CD32; padding: 20px; width: 45%; margin: 50px auto; font-size: larger; text-align: justify;}
+            #currentInvoice {padding: 20px;background-color: #f9f9f9;border: 1px solid #ddd;border-radius: 8px;max-width: 800px;margin: 20px auto;}
+            .invoice {padding: 15px;background-color: #ffffff;border: 1px solid #ccc;border-radius: 5px;margin-bottom: 20px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);}
+            .invoice h3 {margin-top: 0;font-size: 16px; color: #333;}
+            .invoice p {margin: 5px 0;color: #555;}
+            .invoice table {width: 100%;border-collapse: collapse;margin: 10px 0;font-size: 14px;}
+            .invoice table thead th {background-color: #32CD32;padding: 10px;text-align: left;border-bottom: 2px solid #ddd;}   
+            .invoice table tbody td {padding: 10px;border-bottom: 1px solid #eee;}
+            .hr {border: 0;border-top: 1px solid #ddd;margin: 20px 0;}
+            
+            /*Different format for smaller screens (Best on iPhone 12 )*/
+            @media (max-width: 600px){
+                body{background-color: #ffffff; font-size: 14px; padding: 10px;}
+                img{border-color: #32CD32; border-style: solid; border-width: 5px; border-radius: 35%; margin-top: 0px; margin-bottom: 10px; margin: 0 auto; float: none;
+                     width: 95%;}
+                table.heading{padding: 10px; width: 100%; font-size: 12px; margin-bottom: 20px;}
+                td{border: 2px solid #32CD32; border-radius: 5px; padding: 10px;}
+                .heading{text-align: center; font-size: 25px;}
+                .sidebar{top: 0; height: auto; margin-right: 0; right: 0; margin-left: auto;}
+                .openbtn{top: 0px; right: 0px; font-size: 16px;}
+                .closebtn{font-size: 18px;}
+                .main-content{margin-right: 0; right: 0; margin-left: auto; padding: 10px;}
+                .video {width: 90%; height: auto; border-radius: 10px;}
+                #currentInvoice {padding: 15px;background-color: #f9f9f9;border: 1px solid #ddd;border-radius: 8px;max-width: 100%;margin: 15px auto; overflow-x: auto;}
+                .invoice {padding: 10px;background-color: #ffffff;border: 1px solid #ccc;border-radius: 5px;margin-bottom: 15px;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);}
+                .invoice h3 {margin-top: 0;font-size: 14px;color: #333;}
+                .invoice p {margin: 5px 0;color: #555;}
+                .invoice table {width: 100%;border-collapse: collapse;margin: 10px 0;font-size: 12px;}
+                .invoice table thead th {background-color: #32CD32;padding: 8px;text-align: left;border-bottom: 2px solid #ddd;}
+                .invoice table tbody td {padding: 8px;border-bottom: 1px solid #eee;}
+                hr {border: 0;border-top: 1px solid #ddd;margin: 15px 0;}
+                .top{width: 62%; padding: 10px; font-size: 16px;}
+                footer {font-size: 12px;padding: 10px; text-align: center;}
+                footer a {display: block;font-size: 12px; color: #FF4500;}
+                footer button img {width: 20px; height: auto;}
+                footer p {font-size: 12px; margin: 5px 0;}
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class = "header">
+            <a href="../HTML/index.html" onclick="goHome(event)"><img src="../Assets/Gym Store Logo .png" alt="Image Not Found" width="150px" height="150px"></a>
+            <table class="heading">
+                <tr>
+                    <td><a href="../HTML/index.html">HOME</a></td>
+                    <td><a href="../HTML/products.html">ALL PRODUCTS</a></td>
+                    <td><a href="../HTML/dashboard.html" class="active">DASHBOARD</a></td>
+                    <td><a href="../HTML/about.html">ABOUT US</a></td>
+                </tr>
+            </table>
+        </div>      
+       
+
+            <div id="mySidebar" class="sidebar">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="../HTML/index.html">Home</a>
+                <a href="../HTML/index.html#log" style="font-size: large;">&emsp;&emsp;- Log In</a>
+                <a href="../HTML/index.html#miss" style="font-size: large;">&emsp;&emsp;- Mission Statement</a>
+                <a href="../HTML/index.html#vis" style="font-size: large;">&emsp;&emsp;- Vision Statement</a>
+                <a href="../HTML/products.html">Products</a>
+                <a href="../HTML/dashboard.html">Dashboard</a>
+                <a href="#gender" style="font-size: large;">&emsp;&emsp;- Frequency Groupings</a>
+                <a href="#trnSearch" style="font-size: large;">&emsp;&emsp;- Search by TRN</a>
+                <a href="#userCur" style="font-size: large;">&emsp;&emsp;- Current User's Invoices</a>
+            </div>
+        
+         
+        <div class="main-content">
+            <button class="openbtn" onclick="openNav()">&#9776; Navigation</button>
+        </div>
+
+        <center><h1 class="heading">Dashboard</h1></center>
+        <a name="gender"><center><h2>User Frequency Grouped By Gender</h2></center><br></a>
+        <div id="genderFreq"></div>
+        <hr color="#32CD32">
+        
+        <center><h2>User Frequency Grouped By Age</h2></center><br>
+        <div id="ageFreq"></div>
+
+
+        <hr color="#32CD32">
+        <a name="trnSearch"><center><h2>Search For Invoice By TRN</h2></center><br></a>
+        <div id="searchInvoice"></div>
+        <input type="text" id="acceptTrn" name="tb1" placeholder="000-000-000" required pattern="\d{3}-\d{3}-\d{3}" title="Format: 000-000-000">
+        <button onclick="ShowInvoices()">Search</button>
+
+        
+
+        <hr color="#32CD32">
+        <a name="userCur"><center><h2>Invoices of Current User</h2></center><br></a>
+        <div id="currentInvoice"></div>
+
+        <div style="clear: both; text-align: center; margin-top: 20px;">
+            <a href="#top"><button class="top" style="font-size: x-large;">&#128285;Top of the Page&#128285;</button></a>
+        </div><br>
+        
+        <footer>
+            <p>Contact Us:</p>
+            <a href="tel: +8768502495" style="color: #FF4500; text-decoration: none;">
+                Contact Number: 1 (876) 850-2495
+            </a><br>
+            <a href="mailto:2303848@utech.edu.jm?subject=Comments/Queries" style="color: #FF4500; text-decoration: none;">
+                Email: 2303848@utech.edu.jm
+            </a>
+            <br><br>
+        
+            
+            <a href="https://www.instagram.com/peak_performance_gear/" target="_blank" style="text-decoration: none;">
+                <button style="padding: 0; background: none;"><img height="30px" src="../Assets/Insta Icon.png" alt="Folow Us On Instagram" style="margin-top: 0px; margin-bottom: 0px; margin-right: 0px;;"></button>  
+            </a>
+            <br><br>
+
+            <p>&copy; 2024 Walty's Gym Equipment. All Rights Reserved.</p>
+        </footer>
+
+        <script src="../JS/script.js"></script>
+        <script src="../JS/regScript.js"></script>
+        <script src="../JS/productsScript.js"></script>
+        <script src="../JS/cartScript.js"></script>
+        <script src="../JS/dashscript.js"></script>
+    </body>
+</html>

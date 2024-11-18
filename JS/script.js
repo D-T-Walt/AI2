@@ -1,3 +1,9 @@
+/*
+Javone - Anthony Gordon – 2206126
+Kemone Laws – 2109446
+Olivia McFarlane – 2301555
+Diwani Walters – 2303848  
+*/
 //Open Sidebar
 function openNav(){
     document.getElementById("mySidebar").style.width= "250px";
@@ -65,40 +71,69 @@ function goAbout(event){
     }
 }
 
-//
-
-
+//5.a - Generate Invoice
 //Function to display the invoice
 function displayInvoice(){
-
-    // Retrieve the trn from localStorage
-
-
-    // Retrieve the shipping address from localStorage
-
-    //update the invoice header with dynamic data like company name, date, etc.
-    const invoiceDate = new Date().toLocaleDateString();
-    const invoiceNumber = 'INV-' + Math.floor(Math.random() * 1000000);
     
-    document.getElementById('invoice-date').textContent = invoiceDate;
-    document.getElementById('invoice-number').textContent = invoiceNumber;
-    document.getElementById('trn').textContent = "123-456-789"; //Get from Javy's Registration local storage
-    document.getElementById('shipping-info').textContent = "John Doe, 123 Street Name, City"; //Get from olivia's checkout local storage
+    //Retrieve registration data from localStorage
+    const registrationData= JSON.parse(localStorage.getItem("RegistrationData")) || [];
+    const loggedUser= JSON.parse(localStorage.getItem("CurrentUser")); //Get the currently logged-in user's data from localStorage
+    const userIndex= registrationData.findIndex(user=> user.trn=== loggedUser.trn);
 
-    // Retrieve the cart data from localStorage
-    const cart = JSON.parse(localStorage.getItem('Cart')) || [];
+    // Retrieve user and cart data
+    const user= registrationData[userIndex];
+    const cart= Object.values(user.cart ||{});
+    
+    // Retrieve individual shipping data fields from localStorage
+    const name= JSON.parse(localStorage.getItem('name')) || "N/A";
+    const address= JSON.parse(localStorage.getItem('address')) || "N/A";
+    const amountPaid= JSON.parse(localStorage.getItem('amount-paid')) || 0;
 
+    //Generate unique invoice number and invoice date
+    const invoiceDate= new Date().toLocaleDateString();
+    const invoiceNumber= 'INV-' + Math.floor(Math.random() * 1000000);
+
+    //Checking to ensure invoice number is unique 
+    function isUniqueInvNum(invoiceNumber){
+        // Retrieve existing invoices from localStorage
+        let existingInvoices= JSON.parse(localStorage.getItem('AllInvoices')) || [];
+        
+        // Check if the invoice number already exists
+        for (let i= 0; i < existingInvoices.length; i++){
+            if (existingInvoices[i].invoiceNumber=== invoiceNumber){
+                return false; // Invoice number is not unique
+            }
+        }
+        // If no match was found, the invoice number is unique
+        return true;
+    }
+
+    while (!isUniqueInvNum(invoiceNumber)){
+        invoiceNumber= 'INV-' + Math.floor(Math.random() * 1000000);
+    }
+
+    
+    //update invoice header
+    document.getElementById('invoice-date').textContent= invoiceDate;
+    document.getElementById('invoice-number').textContent= invoiceNumber;
+    document.getElementById("trn").textContent= loggedUser.trn;
+    document.getElementById('shipping-info').innerHTML= `
+        <p><strong>Customer Name:</strong> ${name}</p>
+        <p><strong>Address:</strong> ${address}</p>
+        <p><strong>Amount Paid:</strong> $${amountPaid.toFixed(2)}</p>
+    `;
+    
     // Retrieve the subtotal, tax, discount, and total from localStorage
-    const subtotal = parseFloat(localStorage.getItem('Subtotal')) || 0;
-    const tax = parseFloat(localStorage.getItem('Tax')) || 0;
-    const discount = parseFloat(localStorage.getItem('Discount')) || 0;
-    const total = parseFloat(localStorage.getItem('Total')) || 0;
+    const subtotal= parseFloat(localStorage.getItem('Subtotal'));
+    const tax= parseFloat(localStorage.getItem('Tax'));
+    const discount= parseFloat(localStorage.getItem('Discount'));
+    const total= parseFloat(localStorage.getItem('Total')); 
 
     //Insert invoice items into the HTML
     const invoiceItemsContainer= document.getElementById('invoice-items');
     invoiceItemsContainer.innerHTML= ''; //Clear existing items 
 
-    cart.forEach(item => {
+    cart.forEach(item=>{
 
         let dis= 0.0;
 
@@ -106,7 +141,7 @@ function displayInvoice(){
             dis= (item.price * item.quantity)* 0.1;
         }
 
-        const rowHTML = `
+        const rowHTML= `
             <tr>
                 <td>${item.name}</td>
                 <td>${item.quantity}</td>
@@ -126,49 +161,70 @@ function displayInvoice(){
     document.getElementById('invoice-total').textContent= `$${total.toFixed(2)}`;
 
     // Add event listeners for cancel and exit buttons
-    document.getElementById('cancel').addEventListener('click', cancelInvoice);
     document.getElementById('exit3').addEventListener('click', exitInvoice);
 
-    // Create an invoice object to be added to the user's invoices array
-        //waitn on javy an livi's local storage functionality first
-    
-    // Retrieve existing invoices from localStorage or initialize an empty array
+    //5.b - APPEND INVOICE TO THE USER'S ARRAY OF INVOICES(ARRAY OF ABJECTS)
+    //Retrieve the existing invoices array from the logged-in user's data
+    let userInvoices= JSON.parse(localStorage.getItem('AllInvoices')) || [];  
+    const current= registrationData[userIndex];
+    const userInvoice= Object.values(current.invoice || []);
 
-    // Add the new invoice to the array
+    // Create the new invoice object with all relevant details
+    const newInvoice={
+        invoiceNumber: invoiceNumber,  
+        invoiceDate: invoiceDate,  
+        shippingInfo:{
+            name: loggedUser.name,  
+            address: loggedUser.address,  
+            contact: loggedUser.amountPaid  
+        },
+        trn: loggedUser.trn,  
+        items: cart.map(item=> ({
+            name: item.name,   
+            quantity: item.quantity,   
+            price: item.price,   
+            discount: item.discount || 0   
+        })),
+        taxes: tax,  
+        subtotal: subtotal,  
+        totalAmount: total,  
+    };
 
-    // Store the updated invoices array back to localStorage
-}
+    // Append the new invoice to the existing invoices
+    userInvoices.push(newInvoice);
+    userInvoice.push(newInvoice); //Appends the new invoice into the current users invoices
 
-//Function to cancel invoice
-function cancelInvoice(){
-    if (confirm("Are you sure you want to cancel this invoice?")){
-        localStorage.removeItem('productNames');
-        localStorage.removeItem('productPrices');
-        localStorage.removeItem('productQuantities');
+     //Store the invoice in the current users local storage invoice
+    registrationData[userIndex].invoice= userInvoice;
+    localStorage.setItem('RegistrationData', JSON.stringify(registrationData));
 
-        window.location.href= '../HTML/cart.html'; 
-    }
+    //STORE THE INVOICE TO LOCAL STORAGE WITH THE KEY CALLED ALL INVOICES (as an array of objects) to access later
+    localStorage.setItem('AllInvoices', JSON.stringify(userInvoices));
+
 }
 
 //Function to exit invoice
 function exitInvoice(){
-    if (confirm("Are you sure you want to exit?")){
-        localStorage.removeItem('productNames');
-        localStorage.removeItem('productPrices');
-        localStorage.removeItem('productQuantities');
+    const registrationData= JSON.parse(localStorage.getItem('RegistrationData')) || [];
+    const loggedUser= JSON.parse(localStorage.getItem('CurrentUser'));
+    const userIndex= registrationData.findIndex(user=> user.trn=== loggedUser.trn);
+    const userCart= registrationData[userIndex]?.cart ||{}; // Use key-value pairs for cart
 
-        window.location.href= '../HTML/index.html'; 
+    //5.c -  display a message indicating that the invoice has been “sent” to the user’s email
+    if (confirm('This invoice has been sent to your email and your current cart will been cleared')){
+        Object.keys(userCart).forEach(key=> delete userCart[key]);
+        registrationData[userIndex].cart= userCart;
+        localStorage.setItem('RegistrationData', JSON.stringify(registrationData));
+
+        window.location.href= '../HTML/index.html';
     }
 }
 
-//Load the invoice when the page is loaded
+
+//Load the invoice after the page is loaded 
 document.addEventListener('DOMContentLoaded', function (){
     if (window.location.pathname.includes('invoice.html')){
-        displayInvoice();
+        displayInvoice(); 
     }
 });
-
-
-
-
 

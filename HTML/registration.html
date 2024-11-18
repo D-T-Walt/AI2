@@ -1,3 +1,8 @@
+<!--Javone - Anthony Gordon – 2206126
+Kemone Laws – 2109446
+Olivia McFarlane – 2301555
+Diwani Walters – 2303848-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +22,7 @@
                      width: 95%;}
                 table.heading{padding: 10px; width: 100%; font-size: 12px; margin-bottom: 20px;}
                 td{border: 2px solid #32CD32; border-radius: 5px; padding: 10px;}
-                .heading{text-align: center; font-size: 14px;}
+                .heading{text-align: center; font-size: 11px;}
                 .sidebar{top: 0; height: auto; margin-right: 0; right: 0; margin-left: auto;}
                 .openbtn{top: 0px; right: 0px; font-size: 16px;}
                 .closebtn{font-size: 18px;}
@@ -40,11 +45,12 @@
 
     <body>
         <div class = "header">
-            <a href="../HTML/index.html" onclick="goHome(event)"><img src="../Assets/Gym Store Logo .png" alt="Image Not Found" width="150px" height="150px"></a>
+            <a href="../HTML/index.html"><img src="../Assets/Gym Store Logo .png" alt="Image Not Found" width="150px" height="150px"></a>
             <table class="heading">
                 <tr>
                     <td><a href="../HTML/index.html">HOME</a></td>
                     <td><a href="../HTML/products.html"  onclick="allow(event)">ALL PRODUCTS</a></td>
+                    <td><a href="../HTML/dashboard.html">DASHBOARD</a></td>
                     <td><a href="../HTML/about.html">ABOUT US</a></td>
                 </tr>
             </table>
@@ -57,9 +63,12 @@
                 <a href="../HTML/index.html#log" style="font-size: large;">&emsp;&emsp;- Log In</a>
                 <a href="../HTML/index.html#miss" style="font-size: large;">&emsp;&emsp;- Mission Statement</a>
                 <a href="../HTML/index.html#vis" style="font-size: large;">&emsp;&emsp;- Vision Statement</a>
-                <a href="../HTML/products.html">Products</a>
-                <a href="../HTML/cart.html">Cart</a>
-                <a href="../HTML/about.html">About Us</a>
+                <a href="../HTML/products.html" onclick="allow(event)">Products</a>
+                <a href="../HTML/dashboard.html">Dashboard</a>
+                <a href="../HTML/dashboard.html#gender" style="font-size: large;">&emsp;&emsp;- Frequency Groupings</a>
+                <a href="../HTML/dashboard.html#trnSearch" style="font-size: large;">&emsp;&emsp;- Search by TRN</a>
+                <a href="../HTML/dashboard.html#userCur" style="font-size: large;">&emsp;&emsp;- Current User's Invoices</a>
+
             </div>
         
          
@@ -108,7 +117,7 @@
 
                 
                 <input class="sub" type="submit" value="REGISTER">
-                <input class="sub" type="button" value="CLEAR" onclick="resetForm()">
+                <input class="sub" type="button" value="CANCEL" onclick="resetForm()">
             </fieldset>
         </form>
         </center>
@@ -116,7 +125,7 @@
 
     <div>
         <center>
-        <input class="sub" type="button" id="resetData" value="Reset Registration Data" onclick="resetRegistrationData()">
+        <input class="sub" type="button" id="resetData" value="Reset Registration Data" onclick="resetRegistrationData()"> <!--Reset Password-->
         </center> 
     </div>
     

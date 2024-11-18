@@ -1,7 +1,12 @@
+<!--Javone - Anthony Gordon – 2206126
+Kemone Laws – 2109446
+Olivia McFarlane – 2301555
+Diwani Walters – 2303848-->
+
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Performance Gear: Invoice</title>
+        <title>Performance Gear: Dashboards</title>
         <link rel="stylesheet" href="../CSS/style.css">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,9 +22,6 @@
 
             .invoice-header {
                 text-align: right;
-                display: flex;                  
-                flex-wrap: wrap;                
-                justify-content: space-between; 
                 margin-bottom: 20px;            
             }
 
@@ -82,44 +84,27 @@
                 footer button img {width: 20px; height: auto;}
                 footer p {font-size: 12px; margin: 5px 0;}
             }
-
         </style>
 
     </head>
 
     <body>
-        <a href="../HTML/index.html" onclick="goHome(event)"><img src="../Assets/Gym Store Logo .png" alt="Image Not Found" width="12%" height="145px"></a>
-        <br><br><br><br><br><br><br><br><br>
-
-        <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="../HTML/index.html" onclick="goHome(event)">Home</a>
-            <a href="../HTML/index.html#log" style="font-size: large;" onclick="goHomeLog(event)">&emsp;&emsp;- Log In</a>
-            <a href="../HTML/index.html#miss" style="font-size: large;" onclick="goHomeMiss(event)">&emsp;&emsp;- Mission Statement</a>
-            <a href="../HTML/index.html#vis" style="font-size: large;" onclick="goHomeVis(event)">&emsp;&emsp;- Vision Statement</a>
-            <a href="../HTML/products.html">Products</a>
-            <a href="../HTML/cart.html">Cart</a>
-            <a href="../HTML/about.html" onclick="goAbout(event)">About Us</a>
-          </div>
-        
-        <div class="main-content">
-            <button class="openbtn" onclick="openNav()">&#9776; Navigation</button>
-        </div>
-        <br><br>
+        <a href="../HTML/index.html"><img src="../Assets/Gym Store Logo .png" alt="Image Not Found" width="12%" height="145px"></a>
+        <br>
         <div class="invoice-container">
             <div class="logo">
-                <img src="../Assets/Gym Store Logo .png" alt="Logo">
-            </div> 
+                <img src="../Assets/Gym Store Logo .png" alt="Logo" style="float: left;"><b
+            </div>
             
             <h1 class="heading" style="margin-right: 20%;">INVOICE</h1>
 
             <!-- Invoice Header Details -->
             <div class="invoice-header">
-                <p><b>Company Name:</b> Walty's Peak Performance Gear</p>
+                <h2 style="margin-right: 26%;">Walty's Peak Performance Gear</h2>
                 <p><b>Date of Invoice:</b> <span id="invoice-date">[Date]</span></p>
                 <p><b>Invoice Number:</b> <span id="invoice-number">[Invoice Number]</span></p>
-                <p><b>TRN:</b> <span id="trn">[TRN]</span></p>
-                <p><b>Shipping Information:</b> <span id="shipping-info">[Customer Shipping Details]</span></p>
+                <p><b>Customer TRN:</b> <span id="trn">[TRN]</span></p>
+                <p> <span id="shipping-info">[Customer Shipping Details]</span></p>
             </div>
 
             <div class="invoice-details">
@@ -148,8 +133,7 @@
             </div>
     
             <div class="button-container">
-                <button class="cartButton" id="cancel">Cancel</button>
-                <button class="cartButton" id="exit">Exit</button>
+                <button class="cartButton" id="exit3">Exit</button>
                 <br><br><br><br>
 
                 <b><span>Press CTRL + S to Save a Copy of your Invoice<br>Save as type: Webpage, Complete</span></b>
