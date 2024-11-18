@@ -174,10 +174,11 @@ function displayInvoice(){
         invoiceNumber: invoiceNumber,  
         invoiceDate: invoiceDate,  
         shippingInfo:{
-            name: loggedUser.name,  
-            address: loggedUser.address,  
-            contact: loggedUser.amountPaid  
+            name: name,  
+            address: address,  
+            contact: amountPaid  
         },
+        
         trn: loggedUser.trn,  
         items: cart.map(item=> ({
             name: item.name,   
@@ -211,7 +212,7 @@ function exitInvoice(){
     const userCart= registrationData[userIndex]?.cart ||{}; // Use key-value pairs for cart
 
     //5.c -  display a message indicating that the invoice has been “sent” to the user’s email
-    if (confirm('This invoice has been sent to your email and your current cart will been cleared')){
+    if (confirm('This invoice has been sent to your email and your current cart will be cleared')){
         Object.keys(userCart).forEach(key=> delete userCart[key]);
         registrationData[userIndex].cart= userCart;
         localStorage.setItem('RegistrationData', JSON.stringify(registrationData));

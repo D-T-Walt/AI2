@@ -1,3 +1,9 @@
+/*
+Javone - Anthony Gordon – 2206126
+Kemone Laws – 2109446
+Olivia McFarlane – 2301555
+Diwani Walters – 2303848  
+*/
 document.addEventListener('DOMContentLoaded', function (){
 
     ShowUserFrequency();
@@ -180,7 +186,7 @@ function ShowInvoices(){
         console.log("No invoices found.");
         return;
     }
-
+ 
     console.log("All Invoices:");
     allInvoices.forEach((invoice, index)=>{
         console.log(`\nInvoice #${index + 1}`);
@@ -210,7 +216,7 @@ function ShowInvoices(){
         const filteredInvoices= allInvoices.filter(invoice=> invoice.trn=== searchTRN);
 
         if (filteredInvoices.length > 0){
-            console.log(`\nInvoices found for TRN: ${searchTRN}`);
+            console.log(`\nINVOICES FOUND FOR TRN: ${searchTRN}`);
             filteredInvoices.forEach((invoice, index)=>{
                 console.log(`\nInvoice #${index + 1}`);
                 console.log(`Invoice Number: ${invoice.invoiceNumber}`);
