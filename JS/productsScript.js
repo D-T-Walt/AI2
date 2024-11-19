@@ -77,7 +77,7 @@ const allProducts= [
         description: "<p>Description: Versatile functional trainer designed to elevate your fitness routine to new heights.</p><ul><li>Brand: Panatta</li><li>Colour: Black and Red</li><li>Height: 84 inches</li><li>Weight: 868 lb</li><li>Width: 60 inches</li><li>Length/ Depth: 46 inches</li><li>Max Usable Weight Per Side: 100 lb</li><li>Min Usable Weight Per Side: 5 lb</li><li>Number of Height Adjustments: 19 Slots (3.5 inches apart)</li><li>Accessories Included: hand straps, triceps rope, leg curl strap, and more.</li><li>Split Grip Pull-Up Bar</li></ul><br>",
         image: "../Assets/12- Cable Machine.webp"},
     ];
-
+ 
 //2.b. An updated product list must be kept on localStorage, as AllProducts. 
 //Store locally
 localStorage.setItem('AllProducts', JSON.stringify(allProducts));

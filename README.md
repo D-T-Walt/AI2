@@ -88,7 +88,16 @@ The user will land on the Home page when they click on the link to the site. On 
 
 #### Dashboard
 
-- Dashboard Info
+- This page displays the two graphs pertaining to the frequency of gender of the registerd users and age group respectively.
+
+- Below those graphs the user will have the ability to view **ALL** their generated invoices. 
+
+- Users will also have the ability view **ALL** invoices of other registered users using the console of the browser.
+
+- Users have the ability to enter another registered TRN and view all the invoices belonging to that TRN. 
+
+- In order to view the console, users will have to press **CTRL + SHIFT + I** which will open the developer window and invoices belonging to the entered TRN will be displayed.
+
 
 #### Navigation Bar
 
@@ -104,16 +113,43 @@ The user will land on the Home page when they click on the link to the site. On 
 
 - Clicking the logo in the header on any page will bring you back to the Home page. 
 
-## Group Member Details
+## Group Member Details and Contribution
 
-- Diwani Walters 
-    - ID: 2303848 
-- Kemone Laws 
-    - ID: 2109446
-- Olivia McFarlane 
-    - ID: 2301555
-- Javone - Anthony Gordon 
-    - ID: 2206126 
+Javone-Anthony Gordon – 2206126 
+
+- Created Registration page,  regScript and updated Index page to match requirements. 
+
+- Created Registration Form and validated with HTML.  
+
+- Stored registration data to local storage using JavaScript. Used JavaScript functions such as register(), resetForm() among others to achieve the required results. 
+
+- Created a login form, validated the user's entered information against locally stored data, and then saved the validated data to local storage. 
+
+Diwani Walters - 2303848 
+
+- General formatting, look and feel (HTML and CSS Styling) of the website because my website was built on 
+
+- Displayed the products on products.html using productsScript.js and implemented the adding to cart functionality. 
+
+- Created the ShowUserFrequency() function in the dashscript.js that shows the gender and age group frequency of all the registered users on dashboard.html 
+
+- Created the GetUserInvoices() which outputs all the invoice of the current logged in user.  
+
+Olivia McFarlane - 2301555 
+
+- Created and used the cart.html and cartScript.js file to generate the cart page and implement the cart functionalities. 
+
+- Created and generated the checkout page from the checkout.html and implement the checkout functionalities. 
+
+- Created the wireframe for the website. 
+
+Kemone Laws - 2109446  
+
+- Use invoice.html and script.js file to generate the invoice 
+
+- Completed the additional functionality of showInvoices() using console.log(). 
+
+- Assisted in updating the navigation bar. 
 
 ## Tools
 
@@ -149,6 +185,4 @@ The user will land on the Home page when they click on the link to the site. On 
 
 - External JavaScript:
     - Scripts are linked using ```<script>``` tags to include files like script.js and regScript.js.
-
-
 

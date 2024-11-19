@@ -186,7 +186,7 @@ function ShowInvoices(){
         console.log("No invoices found.");
         return;
     }
- 
+  
     console.log("All Invoices:");
     allInvoices.forEach((invoice, index)=>{
         console.log(`\nInvoice #${index + 1}`);
